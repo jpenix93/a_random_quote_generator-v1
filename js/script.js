@@ -18,10 +18,30 @@ const quotes = [
     citation: "Star Wars: Episode III – Revenge of the Sith",
     year: 2005
   },
-  {},
-  {},
-  {},
-  {}
+  {
+    quote: "Do. Or do not. There is no try.",
+    source: "Yoda",
+    citation: "Star Wars: Episode V - The Empire Strikes Back",
+    year: 1980
+  },
+  {
+    quote: "This is where the fun begins.",
+    source: "Anakin Skywalker",
+    citation: "Star Wars: Episode III - Revenge of the Sith",
+    year: 2005
+  },
+  {
+    quote: "Never tell me the odds!",
+    source: "Han Solo",
+    citation: "Star Wars: Episode V - The Empire Strikes Back",
+    year: 1980
+  },
+  {
+    quote: "I find your lack of faith disturbing.",
+    source: "Darth Vader",
+    citation: "Star Wars: Episode IV - A New Hope",
+    year: 1977
+  }
 ];
 
 /***
