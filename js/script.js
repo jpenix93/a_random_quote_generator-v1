@@ -3,26 +3,22 @@ Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
 
-// For assistance: 
-  // Check the "Project Resources" section of the project instructions
-  // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
-
-/*** 
- * `quotes` array 
-***/
+// Stores Star Wars quotes and their associated
+// sources, citations, years, and optional themes.
 
 const quotes = [
   {
     quote: "Hello there!",
     source: "Obi-Wan Kenobi",
-    citation: "Star Wars: Episode III – Revenge of the Sith",
+    citation: "Star Wars: Episode III - Revenge of the Sith",
     year: 2005
   },
   {
     quote: "Do. Or do not. There is no try.",
     source: "Yoda",
     citation: "Star Wars: Episode V - The Empire Strikes Back",
-    year: 1980
+    year: 1980,
+    theme: "Wisdom"
   },
   {
     quote: "This is where the fun begins.",
@@ -44,18 +40,29 @@ const quotes = [
   }
 ];
 
-/***
- * `getRandomQuote` function
-***/
-
+// Selects and returns a random quote object from the quotes array.
 function getRandomQuote() {
   const randomIndex = Math.floor(Math.random() * quotes.length);
   return quotes[randomIndex];
 }
 
-/***
- * `printQuote` function
-***/
+// Selects a random color from the colors array and 
+// assigns it to the background color
+function changeBackgroundColor() {
+  const colors = [
+    "#2E7D32",
+    "#1565C0",
+    "#6A1B9A",
+    "#00695C",
+    "#9A3412"
+  ];
+
+  const randomIndex = Math.floor(Math.random() * colors.length);
+  document.body.style.backgroundColor = colors[randomIndex];
+}
+
+// Displays a random quote with its available citation,
+// year, and theme, then updates the background color.
 function printQuote() {
   const randomQuote = getRandomQuote();
   let html = `
@@ -71,11 +78,19 @@ function printQuote() {
     html += `<span class="year">${randomQuote.year}</span>`;
   }
 
+  if (randomQuote.theme) {
+    html += `<span class="theme">, ${randomQuote.theme}</span>`;
+  }
+
   html += `</p>`;
 
   document.getElementById('quote-box').innerHTML = html;
+  changeBackgroundColor();
 }
 
+// Automatically displays a new random quote and
+// changes the background color every 10 seconds.
+setInterval(printQuote, 10000);
 
 /***
  * click event listener for the print quote button
